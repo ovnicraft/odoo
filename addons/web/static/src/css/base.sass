@@ -717,7 +717,9 @@ $sheet-padding: 16px
     // }}}
     // Login {{{
     .oe_login
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAKUlEQVQIHWO8e/fufwYsgAUkJigoiCIF5DMyoYggcUiXgNnBiGQKmAkARpcEQeriln4AAAAASUVORK5CYII=)
+        background-image: url(/prison_core/static/src/img/ecuador_ama_la_vida.jpg)
+        background-position: left top
+        background-repeat: no-repeat
         text-align: center
         font-size: 14px
         height: 100%
@@ -731,7 +733,7 @@ $sheet-padding: 16px
             border: 1px solid #222
             color: white
             margin: 0
-            @include vertical-gradient(#b92020, #600606)
+            @include vertical-gradient(#0F6CB6, #70AFD8)
             @include radius(4px)
             @include box-shadow((0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(155, 155, 155, 0.4) inset))
         input, select
@@ -766,7 +768,7 @@ $sheet-padding: 16px
             right: 0
             bottom: 0
             text-shadow: 0 1px 1px #999999
-            @include vertical-gradient(#b41616, #600606)
+            @include vertical-gradient(#0F6CB6, #70AFD8)
         .oe_login_pane
             position: absolute
             top: 50%
@@ -783,9 +785,15 @@ $sheet-padding: 16px
             h2
                 margin-top: 0
                 font-size: 18px
+        .oe_login_ama_vida
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            margin: 0 auto
         .oe_login_logo
             position: absolute
-            top: -70px
+            top: -100px
             left: 0
             width: 100%
             margin: 0 auto
