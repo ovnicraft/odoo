@@ -356,17 +356,16 @@ class datetime(_column):
         else:
             registry = openerp.modules.registry.RegistryManager.get(cr.dbname)
             tz_name = registry.get('res.users').read(cr, SUPERUSER_ID, uid, ['tz'])['tz']
+        utc_timestamp = pytz.utc.localize(timestamp, is_dst=False) # UTC = no DST
         if tz_name:
             try:
-                utc = pytz.timezone('UTC')
                 context_tz = pytz.timezone(tz_name)
-                utc_timestamp = utc.localize(timestamp, is_dst=False) # UTC = no DST
                 return utc_timestamp.astimezone(context_tz)
             except Exception:
                 _logger.debug("failed to compute context/client-specific timestamp, "
                               "using the UTC value",
                               exc_info=True)
-        return timestamp
+        return utc_timestamp
 
 class binary(_column):
     _type = 'binary'
@@ -1146,9 +1145,9 @@ class function(_column):
         # if we already have a value, don't recompute it.
         # This happen if case of stored many2one fields
         if values and not multi and name in values[0]:
-            result = {v['id']: v[name] for v in values}
+            result = dict((v['id'], v[name]) for v in values)
         elif values and multi and all(n in values[0] for n in name):
-            result = {v['id']: dict((n, v[n]) for n in name) for v in values}
+            result = dict((v['id'], dict((n, v[n]) for n in name)) for v in values)
         else:
             result = self._fnct(obj, cr, uid, ids, name, self._arg, context)
         for id in ids:
@@ -1428,7 +1427,8 @@ class property(function):
         default_val = self._get_default(obj, cr, uid, prop_name, context)
 
         property_create = False
-        if isinstance(default_val, openerp.osv.orm.browse_record):
+        if isinstance(default_val, (openerp.osv.orm.browse_record,
+                                    openerp.osv.orm.browse_null)):
             if default_val.id != id_val:
                 property_create = True
         elif default_val != id_val:
