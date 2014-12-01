@@ -535,9 +535,9 @@ class account_account(osv.osv):
         return True
 
     def _check_account_type(self, cr, uid, ids, context=None):
-        for account in self.browse(cr, uid, ids, context=context):
-            if account.type in ('receivable', 'payable') and account.user_type.close_method != 'unreconciled':
-                return False
+#        for account in self.browse(cr, uid, ids, context=context):
+#            if account.type in ('receivable', 'payable') and account.user_type.close_method != 'unreconciled':
+#                return False
         return True
 
     _constraints = [
