@@ -81,8 +81,8 @@
                 </ul>
             </form>
             <div class="oe_login_footer">
-                <a href="#" class="oe_login_manage_db">Manage Databases</a> |
-                <a href="http://www.justicia.gob.ec" target="_blank">Copyright MJDHC 2015</a>
+                <a href="#" class="oe_login_manage_db">Manage Databases</a> | 
+                <a href="http://www.justicia.gob.ec" target="_blank">** Copyright MJDHC 2015</a>
             </div>
         </div>
     </div>

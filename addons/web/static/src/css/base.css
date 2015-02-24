@@ -457,8 +457,8 @@
   margin: 4px;
 }
 .openerp .oe_avatar > img {
-  max-height: 90px;
-  max-width: 90px;
+  max-height: 180px;
+  max-width: 180px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -472,8 +472,8 @@
   margin-left: 5px;
 }
 .openerp .oe_image_small > img {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 90px;
+  max-height: 90px;
 }
 .openerp .oe_image_medium > img {
   max-width: 180px;
