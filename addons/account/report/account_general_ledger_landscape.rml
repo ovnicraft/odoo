@@ -273,16 +273,13 @@
   <story>
   	<pto>
   	<pto_header>
-  		<blockTable colWidths="45.0,35.0,30.0,90.0,65.0,55.0,100.0,70.0,65.0,65.0,75.0,75.0" style="Table7">[[data['form']['amount_currency'] == True or removeParentNode('blockTable')]]
+  		<blockTable colWidths="45.0,35.0,190.0,65.0,55.0,100.0,65.0,65.0,75.0,75.0" style="Table7">[[data['form']['amount_currency'] == True or removeParentNode('blockTable')]]
 	      <tr>
 	        <td>
 	          <para style="terp_tblheader_Details">Date</para>
 	        </td>
 	        <td>
 	          <para style="terp_tblheader_Details">Period</para>
-	        </td>
-	        <td>
-	          <para style="terp_tblheader_Details">JRNL</para>
 	        </td>
 	        <td>
 	          <para style="terp_tblheader_Details">Partner</para>
