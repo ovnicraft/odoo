@@ -679,10 +679,11 @@ class AccountJournal(models.Model):
     @api.model
     def _create_sequence(self, vals, refund=False):
         """ Create new no_gap entry sequence for every new Journal"""
+        import pdb; pdb.set_trace()
         prefix = self._get_sequence_prefix(vals['code'], refund)
         seq_name = refund and vals['code'] + _(': Refund') or vals['code']
         seq = {
-            'name': _('%s Sequence') % seq_name,
+            'name': _('{seq} Sequence'.format(seq=seq_name)),
             'implementation': 'no_gap',
             'prefix': prefix,
             'padding': 4,
